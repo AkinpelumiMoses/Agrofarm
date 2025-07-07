@@ -173,21 +173,21 @@ const AdminDashboard = () => {
                       <TableCell className="font-mono text-sm">
                         {order._id.slice(-8)}
                       </TableCell>
-                      {/* <TableCell>
+                      <TableCell>
                         <div>
                           <p className="font-medium">{order.userId.name}</p>
                           <p className="text-sm text-gray-500">{order.userId.email}</p>
                           <p className="text-sm text-gray-500">_____{order.userId.role}</p>
                         </div>
-                      </TableCell> */}
+                      </TableCell>
 
-                      <TableCell>
+                      {/* <TableCell>
                       <div>
                         <p className="font-medium">{order.userId?.name ?? 'Unknown User'}</p>
                         <p className="text-sm text-gray-500">{order.userId?.email ?? 'N/A'}</p>
                         <p className="text-sm text-gray-500">_____{order.userId?.role ?? 'N/A'}</p>
                       </div>
-                    </TableCell>
+                    </TableCell> */}
 
                       <TableCell>NGN{order.totalPrice.toFixed(2)}</TableCell>
                       <TableCell>
@@ -196,8 +196,8 @@ const AdminDashboard = () => {
                         </Badge>
                       </TableCell>
                       <TableCell>
-                        {/* { order.userId.role ==='staff'? 'Cash': 'Online'} */}
-                        { order.userId?.role === 'staff' ? 'Cash' : 'Online' }
+                        { order.userId.role ==='staff'? 'Cash': 'Online'}
+                        {/* { order.userId?.role === 'staff' ? 'Cash' : 'Online' } */}
 
                       </TableCell>
                       <TableCell>
