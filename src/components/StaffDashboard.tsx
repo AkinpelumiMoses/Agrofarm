@@ -174,11 +174,8 @@ const StaffDashboard = () => {
                       </TableCell>
                       <TableCell>
                         <div>
-                          {/* <p className="font-medium">{order.userId.name}</p>
-                          <p className="text-sm text-gray-500">{order.userId.email}</p> */}
-
-                          <p className="font-medium">{order.userId?.name ?? 'Unknown User'}</p>
-                        <p className="text-sm text-gray-500">{order.userId?.email ?? 'N/A'}</p>
+                          <p className="font-medium">{order.userId.name}</p>
+                          <p className="text-sm text-gray-500">{order.userId.email}</p>
                           
                         </div>
                       </TableCell>
