@@ -14,7 +14,7 @@ const Index = () => {
       <div>
       </div>
       {/* Hero Section */} 
-      <div className=" text-white pb-80 pt-40 " style={{ background:"linear-gradient(to right, rgba(0, 0, 0, 1), rgba(34,197, 94, 0.8)), url('public/pics/img3.jpg')", backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'center', backgroundAttachment: 'fixed' }}>
+      <div className=" text-white pb-80 pt-40 " style={{ background:"linear-gradient(to right, rgba(0, 0, 0, 1), rgba(34,197, 94, 0.8)), url('/pics/img3.jpg')", backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'center', backgroundAttachment: 'fixed' }}>
       
         <div className="max-w-7xl ms-10 px-4 sm:px-6 lg:px-8 text-start">
           <h1 className="text-4xl md:text-6xl font-bold mb-4 animate-pulse ease-in-out" style={{animationIterationCount:'1'}}>

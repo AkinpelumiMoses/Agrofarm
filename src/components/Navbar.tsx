@@ -25,7 +25,7 @@ const Navbar = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
            
-            <span className="text-xl font-bold text-gray-900 "><img src="/public/pics/logo.png" alt="logo" width={"190"} /></span>
+            <span className="text-xl font-bold text-gray-900 "><img src="/pics/logo.png" alt="logo" width={"190"} /></span>
           </Link>
 
           {/* Search bar - Hidden on mobile */}
