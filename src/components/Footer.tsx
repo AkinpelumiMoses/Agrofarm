@@ -30,7 +30,7 @@ const Footer = () => {
         <p className='w-2/3 ml-8 '>your gateway to a smarter, more sustainable agricultural future. We’re dedicated to empowering farmers, agribusinesses, and communities through innovative solutions that blend traditional farming wisdom with cutting-edge technology</p>
 
          <p className="text-sm ml-8 mt-5">
-          &copy; {new Date().getFullYear()} <a href="www.creatiftechnologies.com.ng" className="text-blue-500">Creatifity technologies digital services</a>. All rights reserved.
+          &copy; {new Date().getFullYear()} <a href="https://creatiftechnologies.com.ng/" className="text-blue-500">Creatifity technologies digital services</a>. All rights reserved.
         </p>
 
 </div>
