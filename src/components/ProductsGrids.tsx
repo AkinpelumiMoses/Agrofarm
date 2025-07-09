@@ -16,6 +16,8 @@ const ProductsGrids = () => {
         {Array.from({ length: 8 }).map((_, i) => (
           <div key={i} className="bg-gray-200 animate-pulse rounded-lg h-96"></div>
         ))}
+
+        
       </div>
     );
   }
@@ -51,8 +53,14 @@ const ProductsGrids = () => {
       {products.map((product: Product) => (
         <ProductCard key={product._id} product={product} />
       ))}
+
+    
     </div>
+        
   );
+
+ 
 };
+
 
 export default ProductsGrids;

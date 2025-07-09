@@ -3,6 +3,7 @@ import { useQuery } from '@tanstack/react-query';
 import { productApi } from '@/services/api';
 import ProductCard from './ProductCard';
 import { Product } from '@/types/product';
+import Footer from './Footer';
 
 const ProductGrid = () => {
   const { data: products = [], isLoading, error } = useQuery({
@@ -47,12 +48,24 @@ const ProductGrid = () => {
   }
 
   return (
+    <div>
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 m-5">
       {products.map((product: Product) => (
         <ProductCard key={product._id} product={product} />
-      ))}
+      ))};
+         
+       
+
+      
     </div>
+   
+          <Footer />
+        
+    </div>
+    
+    
   );
+
 };
 
 export default ProductGrid;
