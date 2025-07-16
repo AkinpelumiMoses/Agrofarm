@@ -71,6 +71,16 @@ export const productApi = {
     });
     if (!response.ok) throw new Error('Failed to delete product');
   },
+
+  // Search products by name (backend expects query param: ?query=...)
+searchProducts: async (query: string): Promise<any[]> => {
+  const response = await fetch(`${API_BASE_URL}/products/search?query=${encodeURIComponent(query)}`, {
+    headers: createHeaders(), // no auth needed unless you require it
+  });
+  if (!response.ok) throw new Error('Failed to search products');
+  return response.json();
+},
+
 };
 
 export const authApi = {
