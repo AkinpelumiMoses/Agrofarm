@@ -10,6 +10,8 @@ const SignupForm = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    address:'',
+    phone:'',
     password: '',
     confirmPassword: ''
   });
@@ -85,6 +87,28 @@ const SignupForm = () => {
               name="email"
               placeholder="Email"
               value={formData.email}
+              onChange={handleChange}
+              required
+            />
+          </div>
+
+           <div>
+            <Input
+              type="text"
+              name="address"
+              placeholder="Address Optional"
+              value={formData.address}
+              onChange={handleChange}
+              required
+            />
+          </div>
+
+           <div>
+            <Input
+              type="phone"
+              name="phone"
+              placeholder="Phone Number Optional"
+              value={formData.phone}
               onChange={handleChange}
               required
             />
