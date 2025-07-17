@@ -186,7 +186,7 @@ const AdminDashboard = () => {
                        <TableCell>
                         <div>
                         
-                            <p className="text-sm text-gray-500">{order.userId.address}</p> 
+                            <p className="text-sm text-gray-500">{order.userId.address ||"Staff address"}</p> 
                             
                               <p className="text-sm text-gray-500">{order.userId.phone}</p>
                         
