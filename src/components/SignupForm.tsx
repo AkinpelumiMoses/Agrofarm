@@ -44,6 +44,8 @@ const SignupForm = () => {
       await signup({
         name: formData.name,
         email: formData.email,
+        address: formData.address,
+        phone: formData.phone,
         password: formData.password
       });
       toast({

@@ -23,6 +23,8 @@ export interface LoginRequest {
 export interface SignupRequest {
   name: string;
   email: string;
+  address?: string;
+  phone?: string;
   password: string;
   role?: 'user' | 'admin' ;
 }
