@@ -22,8 +22,8 @@ export interface OrderWithUser {
     _id: string;
     name: string;
     email: string;
-    address?: string;
-    phone?: string;
+    address: string;
+    phone: string;
     role:string;
   };
   products: OrderProduct[];
@@ -31,4 +31,5 @@ export interface OrderWithUser {
   status: 'pending' | 'shipped' | 'delivered' | 'cancelled' | 'processing';
   createdAt: string;
   updatedAt: string;
+ 
 }
