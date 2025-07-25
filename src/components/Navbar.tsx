@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import {
   ShoppingCart, Store, Search, Menu, X, User, LogOut, Shield,
 } from 'lucide-react';
@@ -18,23 +18,39 @@ const Navbar = () => {
   const { totalItems } = useCart();
   const { user, logout, isAuthenticated, isAdmin, isStaff } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const [searchResults, setSearchResults] = useState<any[]>([]);
   const [isSearching, setIsSearching] = useState(false);
 
+  const API_BASE_URL = import.meta.env.VITE_API_URL;
+
+  useEffect(() => {
+    if (!API_BASE_URL) {
+      console.error('VITE_API_URL is not defined. Set it in your environment variables.');
+    }
+  }, []);
+
   const handleSearch = async () => {
-    if (!searchTerm.trim()) return;
+    if (!searchTerm.trim() || !API_BASE_URL) return;
+
     try {
       setIsSearching(true);
       const response = await fetch(
-        `${import.meta.env.VITE_API_URL || 'http://localhost:4500/api'}/products/search?name=${encodeURIComponent(searchTerm)}`
+        `${API_BASE_URL}/products/search?name=${encodeURIComponent(searchTerm)}`
       );
+
+      if (!response.ok) {
+        throw new Error(`Search failed with status ${response.status}`);
+      }
+
       const data = await response.json();
       setSearchResults(data);
-    } catch (error) {
+    } catch (error: any) {
       console.error('Search failed:', error);
+      alert('Search failed. Please try again later.');
     } finally {
       setIsSearching(false);
     }
@@ -43,16 +59,22 @@ const Navbar = () => {
   const handleLogout = () => {
     logout();
     navigate('/');
-    setIsMenuOpen(false); // close menu after logout
+    setIsMenuOpen(false);
   };
 
   useEffect(() => {
     if (isMenuOpen) {
-      document.body.style.overflow = 'hidden'; // prevent scroll
+      document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = 'auto';
     }
   }, [isMenuOpen]);
+
+  useEffect(() => {
+    setSearchResults([]);
+    setSearchTerm('');
+    setIsMenuOpen(false);
+  }, [location.pathname]);
 
   return (
     <nav className="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
@@ -63,11 +85,12 @@ const Navbar = () => {
             <img src="/pics/logo.png" alt="logo" width={190} />
           </Link>
 
-          {/* Desktop Search Bar */}
+          {/* Desktop Search */}
           <div className="hidden md:flex flex-1 max-w-lg mx-8 relative">
             <Search
               className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400 cursor-pointer"
               onClick={handleSearch}
+              aria-label="Search"
             />
             <Input
               type="text"
@@ -165,7 +188,7 @@ const Navbar = () => {
 
           {/* Mobile Menu Toggle */}
           <div className="md:hidden">
-            <Button variant="ghost" size="sm" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+            <Button variant="ghost" size="sm" aria-label="Toggle Menu" onClick={() => setIsMenuOpen(!isMenuOpen)}>
               {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </Button>
           </div>
