@@ -1,40 +1,83 @@
-import { Link, useNavigate } from 'react-router-dom';
-
-
-
+import { Link } from 'react-router-dom';
+import { Facebook, Instagram, Twitter, Mail } from 'lucide-react';
 
 const Footer = () => {
   return (
-    <footer className="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm py-8">
-      {/* <div className="container  py-8 px-4 sm:px-6 lg:px-8">
-      <Link to="/" className="flex items-center space-x-2">
-      <span className="text-xl font-bold text-gray-900 "><img src="/pics/logo.png" alt="logo" width={"190"} /></span>
-       </Link>
+    <footer className="bg-white text-gray-800 py-12 mt-auto border-t border-gray-200">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+        {/* Logo and About */}
+        <div className="col-span-1">
+          <Link to="/" className="flex items-center mb-4">
+            <img src="/pics/logo.png" alt="logo" width="190" />
+          </Link>
+          <p className="text-sm text-gray-600">
+            Your gateway to a smarter, more sustainable agricultural future. We empower farmers and communities with innovative solutions blending traditional wisdom and modern technology.
+          </p>
+        </div>
 
-       <p className='w-50'>your gateway to a smarter, more sustainable agricultural future. We’re dedicated to empowering farmers, agribusinesses, and communities through innovative solutions that blend traditional farming wisdom with cutting-edge technology</p>
-       
+        {/* Quick Links */}
+        <div>
+          <h3 className="text-lg font-semibold mb-4 text-gray-900">Quick Links</h3>
+          <ul className="space-y-2 text-sm text-gray-600">
+            <li>
+              <Link to="/" className="hover:text-blue-500 transition">Home</Link>
+            </li>
+            <li>
+              <Link to="/about" className="hover:text-blue-500 transition">About Us</Link>
+            </li>
+            <li>
+              <Link to="/services" className="hover:text-blue-500 transition">Services</Link>
+            </li>
+            <li>
+              <Link to="/contact" className="hover:text-blue-500 transition">Contact</Link>
+            </li>
+          </ul>
+        </div>
 
-        <p className="text-sm">
-          &copy; {new Date().getFullYear()} <a href="www.creatiftechnologies.com.ng" className="text-blue-500">Creatifity technologies digital services</a>. All rights reserved.
-        </p>
-        <p className="text-xs mt-2">
-          
-        </p>
-      </div> */}
+        {/* Contact Info */}
+        <div>
+          <h3 className="text-lg font-semibold mb-4 text-gray-900">Contact Us</h3>
+          <ul className="text-sm text-gray-600 space-y-2">
+            <li>Email: <a href="mailto:info@creatiftechnologies.com.ng" className="hover:text-blue-500">info@creatiftechnologies.com.ng</a></li>
+            <li>Phone: +234 123 456 7890</li>
+            <li>Address: Lagos, Nigeria</li>
+          </ul>
+        </div>
 
-      <div className="">
-  
-     <Link to="/" className="flex items-center space-x-2">
-      <span className="text-xl font-bold text-gray-900 "><img src="/pics/logo.png" alt="logo" width={"190"} /></span>
-       </Link>
-        <p className='w-2/3 ml-8 '>your gateway to a smarter, more sustainable agricultural future. We’re dedicated to empowering farmers, agribusinesses, and communities through innovative solutions that blend traditional farming wisdom with cutting-edge technology</p>
+        {/* Social Media */}
+        <div>
+          <h3 className="text-lg font-semibold mb-4 text-gray-900">Follow Us</h3>
+          <div className="flex space-x-4">
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-blue-500 transition">
+              <Facebook size={20} />
+            </a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-blue-500 transition">
+              <Instagram size={20} />
+            </a>
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-blue-500 transition">
+              <Twitter size={20} />
+            </a>
+            <a href="mailto:info@creatiftechnologies.com.ng" className="text-gray-600 hover:text-blue-500 transition">
+              <Mail size={20} />
+            </a>
+          </div>
+        </div>
+      </div>
 
-         <p className="text-sm ml-8 mt-5">
-          &copy; {new Date().getFullYear()} <a href="https://creatiftechnologies.com.ng/" className="text-blue-500">Creatifity technologies digital services</a>. All rights reserved.
-        </p>
-
-</div>
+      {/* Footer Bottom */}
+      <div className="border-t border-gray-200 mt-10 pt-6 text-center text-sm text-gray-500">
+        &copy; {new Date().getFullYear()}{" "}
+        <a
+          href="https://creatiftechnologies.com.ng/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-blue-500 hover:underline"
+        >
+          Creatifity Technologies Digital Services
+        </a>. All rights reserved.
+      </div>
     </footer>
   );
-}
+};
+
 export default Footer;

@@ -89,6 +89,27 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Service Highlights Section */}
+      <section className="py-16 bg-white animate__animated animate__fadeInUp">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 text-center">
+          <h2 className="text-3xl font-bold text-gray-900 mb-10">Why Choose AgroFarm?</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="bg-green-50 p-6 rounded-lg shadow-md hover:shadow-lg transition-all">
+              <h3 className="text-xl font-semibold text-green-700 mb-2">Eco-Friendly Solutions 🌿</h3>
+              <p className="text-gray-700">Sustainable products and practices that protect the environment while boosting productivity.</p>
+            </div>
+            <div className="bg-green-50 p-6 rounded-lg shadow-md hover:shadow-lg transition-all">
+              <h3 className="text-xl font-semibold text-green-700 mb-2">24/7 Customer Support 📞</h3>
+              <p className="text-gray-700">Get assistance anytime from our dedicated support team committed to your success.</p>
+            </div>
+            <div className="bg-green-50 p-6 rounded-lg shadow-md hover:shadow-lg transition-all">
+              <h3 className="text-xl font-semibold text-green-700 mb-2">Fast & Reliable Delivery 🚚</h3>
+              <p className="text-gray-700">Timely deliveries to ensure you get what you need, when you need it – every time.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Stats Section */}
       <section className="bg-green-50 py-12 animate__animated animate__fadeIn">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
