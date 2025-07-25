@@ -141,26 +141,18 @@ const Index = () => {
         <ProductsGrids />
       </section>
 
-      {/* Testimonials Section */}
-      <section className="bg-gray-100 py-16 animate__animated animate__fadeInUp">
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 text-center">
-          <h2 className="text-3xl font-bold text-gray-900 mb-10 animate__animated animate__fadeInDown">What Our Customers Say</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-white p-6 rounded-lg shadow-lg animate__animated animate__fadeInLeft">
-              <p className="text-gray-700 italic">"Agrofarm transformed our yield and made farming enjoyable again. Highly recommend their tools and support!"</p>
-              <p className="mt-4 font-semibold text-green-600">- Farmer Adebayo</p>
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow-lg animate__animated animate__fadeInUp">
-              <p className="text-gray-700 italic">"Excellent customer service and quality products. My livestock are healthier than ever!"</p>
-              <p className="mt-4 font-semibold text-green-600">- Grace Oluchi</p>
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow-lg animate__animated animate__fadeInRight">
-              <p className="text-gray-700 italic">"A game-changer for modern farming. I love how easy it is to get what I need from Agrofarm."</p>
-              <p className="mt-4 font-semibold text-green-600">- John Okoro</p>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* WhatsApp Chat Button */}
+      <a
+        href="https://wa.me/09165324219" // Replace with your WhatsApp number
+        className="fixed bottom-6 right-6 bg-green-500 text-white p-3 rounded-full shadow-lg hover:bg-green-600 transition-all z-50 flex items-center space-x-2"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" className="h-6 w-6">
+          <path d="M12 0C5.373 0 0 5.373 0 12c0 2.114.552 4.094 1.514 5.819L0 24l6.423-1.497A11.938 11.938 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22.05c-2.007 0-3.887-.586-5.478-1.593l-.392-.248-3.81.889.812-3.709-.255-.397A9.962 9.962 0 0 1 2.05 12c0-5.48 4.47-9.95 9.95-9.95 5.48 0 9.95 4.47 9.95 9.95 0 5.48-4.47 9.95-9.95 9.95zm5.377-7.137c-.297-.149-1.755-.867-2.027-.967-.272-.1-.47-.148-.667.15-.198.297-.767.967-.94 1.166-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.058-.173-.297-.018-.458.13-.606.133-.133.297-.347.446-.52.149-.173.198-.297.297-.495.099-.198.05-.372-.025-.52-.074-.148-.667-1.61-.914-2.21-.241-.578-.486-.5-.667-.51l-.57-.01c-.198 0-.52.074-.793.372-.272.297-1.04 1.016-1.04 2.48 0 1.465 1.065 2.875 1.213 3.074.148.198 2.095 3.2 5.08 4.486.709.306 1.262.49 1.693.627.712.227 1.36.195 1.872.119.571-.085 1.755-.717 2.004-1.41.248-.694.248-1.289.173-1.41-.074-.124-.272-.198-.57-.347z" />
+        </svg>
+        <span className="hidden md:inline text-sm font-medium">Chat with us</span>
+      </a>
 
       {/* Footer */}
       <Footer />
