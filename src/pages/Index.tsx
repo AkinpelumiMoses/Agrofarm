@@ -45,6 +45,10 @@ const Index = () => {
     return () => clearInterval(interval);
   }, []);
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <div className="min-h-screen bg-white flex flex-col">
       {/* Hero Section */}
@@ -143,7 +147,7 @@ const Index = () => {
 
       {/* WhatsApp Chat Button */}
       <a
-        href="https://wa.me/09165324219" // Replace with your WhatsApp number
+        href="https://wa.me/09165324219"
         className="fixed bottom-6 right-6 bg-green-500 text-white p-3 rounded-full shadow-lg hover:bg-green-600 transition-all z-50 flex items-center space-x-2"
         target="_blank"
         rel="noopener noreferrer"
@@ -153,6 +157,16 @@ const Index = () => {
         </svg>
         <span className="hidden md:inline text-sm font-medium">Chat with us</span>
       </a>
+
+      {/* Back to Top Button */}
+      <button
+        onClick={scrollToTop}
+        className="fixed bottom-20 right-6 bg-gray-700 text-white p-3 rounded-full shadow-lg hover:bg-gray-800 transition-all z-50"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-5 w-5">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
+        </svg>
+      </button>
 
       {/* Footer */}
       <Footer />

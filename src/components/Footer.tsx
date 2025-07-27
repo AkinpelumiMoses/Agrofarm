@@ -48,16 +48,16 @@ const Footer = () => {
         <div>
           <h3 className="text-lg font-semibold mb-4 text-gray-900">Follow Us</h3>
           <div className="flex space-x-4">
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-blue-500 transition">
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-green-500 transition">
               <Facebook size={20} />
             </a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-blue-500 transition">
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-green-500 transition">
               <Instagram size={20} />
             </a>
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-blue-500 transition">
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-green-500 transition">
               <Twitter size={20} />
             </a>
-            <a href="mailto:creatifitytechnologiesdigital@gmail.com" className="text-gray-600 hover:text-blue-500 transition">
+            <a href="mailto:creatifitytechnologiesdigital@gmail.com" className="text-gray-600 hover:text-green-500 transition">
               <Mail size={20} />
             </a>
           </div>
