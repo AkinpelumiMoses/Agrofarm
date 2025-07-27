@@ -20,16 +20,16 @@ const Footer = () => {
           <h3 className="text-lg font-semibold mb-4 text-gray-900">Quick Links</h3>
           <ul className="space-y-2 text-sm text-gray-600">
             <li>
-              <Link to="/" className="hover:text-blue-500 transition">Home</Link>
+              <Link to="/" className="hover:text-green-500 transition">Home</Link>
             </li>
             <li>
-              <Link to="/about" className="hover:text-blue-500 transition">About Us</Link>
+              <Link to="/about" className="hover:text-green-500 transition">About Us</Link>
             </li>
             <li>
-              <Link to="/services" className="hover:text-blue-500 transition">Services</Link>
+              <Link to="/services" className="hover:text-green-500 transition">Services</Link>
             </li>
             <li>
-              <Link to="/contact" className="hover:text-blue-500 transition">Contact</Link>
+              <Link to="/contact" className="hover:text-green-500 transition">Contact</Link>
             </li>
           </ul>
         </div>
@@ -38,9 +38,9 @@ const Footer = () => {
         <div>
           <h3 className="text-lg font-semibold mb-4 text-gray-900">Contact Us</h3>
           <ul className="text-sm text-gray-600 space-y-2">
-            <li>Email: <a href="mailto:info@creatiftechnologies.com.ng" className="hover:text-blue-500">info@creatiftechnologies.com.ng</a></li>
-            <li>Phone: +234 123 456 7890</li>
-            <li>Address: Lagos, Nigeria</li>
+            <li>Email: <a href="mailto:creatifitytechnologiesdigitals@gmail.com" className="hover:text-green-500">creatifitytechnologiesdigitals@gmail.com</a></li>
+            <li>Phone: +234- 9165324219</li>
+            <li>Address: Apata,Ibadan,Nigeria</li>
           </ul>
         </div>
 
@@ -57,7 +57,7 @@ const Footer = () => {
             <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-blue-500 transition">
               <Twitter size={20} />
             </a>
-            <a href="mailto:info@creatiftechnologies.com.ng" className="text-gray-600 hover:text-blue-500 transition">
+            <a href="mailto:creatifitytechnologiesdigital@gmail.com" className="text-gray-600 hover:text-blue-500 transition">
               <Mail size={20} />
             </a>
           </div>
@@ -71,7 +71,7 @@ const Footer = () => {
           href="https://creatiftechnologies.com.ng/"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-blue-500 hover:underline"
+          className="text-green-500 hover:underline"
         >
           Creatifity Technologies Digital Services
         </a>. All rights reserved.
