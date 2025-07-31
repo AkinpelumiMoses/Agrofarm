@@ -14,7 +14,10 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 
+
+
 const Navbar = () => {
+
   const { totalItems } = useCart();
   const { user, logout, isAuthenticated, isAdmin, isStaff } = useAuth();
   const navigate = useNavigate();
@@ -65,11 +68,13 @@ const Navbar = () => {
 
           {/* Desktop Search Bar */}
           <div className="hidden md:flex flex-1 max-w-lg mx-8 relative">
+            
             <Search
               className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400 cursor-pointer"
               onClick={handleSearch}
             />
-            <Input
+     
+              <Input
               type="text"
               placeholder="Search products..."
               className="pl-10 w-full"
@@ -77,6 +82,7 @@ const Navbar = () => {
               onChange={(e) => setSearchTerm(e.target.value)}
               onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
             />
+          
             {(isSearching || searchResults.length > 0) && (
               <div className="absolute top-full left-0 w-full mt-1 bg-white border shadow-md z-50 rounded max-h-60 overflow-y-auto">
                 {isSearching ? (
@@ -130,6 +136,8 @@ const Navbar = () => {
                     <DropdownMenuItem onClick={() => navigate('/userprofile')}>
                       <Shield className="h-4 w-4 mr-2" /> Profile
                     </DropdownMenuItem>
+                  
+                          
                     {isStaff && (
                       <DropdownMenuItem onClick={() => navigate('/staff')}>
                         <Shield className="h-4 w-4 mr-2" /> Staff Dashboard
@@ -151,16 +159,19 @@ const Navbar = () => {
                   </DropdownMenuContent>
                 </DropdownMenu>
               </>
+
             ) : (
               <div className="flex items-center space-x-2">
                 <Link to="/login">
                   <Button variant="outline" size="sm">Login</Button>
                 </Link>
                 <Link to="/signup">
-                  <Button size="sm" className="bg-green-500 hover:bg-green-600">Sign Up</Button>
+                  <Button size="sm" className="bg-green-500 hover:bg-green-600">Signup</Button>
                 </Link>
+               
               </div>
             )}
+            
           </div>
 
           {/* Mobile Menu Toggle */}
@@ -258,8 +269,11 @@ const Navbar = () => {
                   Sign Up
                 </Button>
               </Link>
+            
             </>
+            
           )}
+          
         </div>
       )}
     </nav>
