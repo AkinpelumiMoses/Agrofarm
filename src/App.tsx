@@ -19,6 +19,7 @@ import ProductGrid from "./components/ProductGrid";
 import UserProfile from "./components/UserProfile";
 import MyCarousel from "./components/Carousel";
 import Staff from "./pages/Staff";
+import AboutUs from "./pages/AboutUs";
 
 
 
@@ -46,6 +47,7 @@ const App = () => (
                  <Route path="/productgrid" element={<ProductGrid/>} />
                   <Route path="/userprofile" element={<UserProfile/>} />
                 <Route path="/carousel" element={<MyCarousel />} />
+                <Route path="/about" element={<AboutUs />} />
 
                   
                  

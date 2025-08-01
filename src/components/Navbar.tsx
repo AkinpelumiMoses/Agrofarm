@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import {
-  ShoppingCart, Store, Search, Menu, X, User, LogOut, Shield,
+  ShoppingCart, Store, Search, Menu, X, User, LogOut, Shield, LogIn, UserPlus,
 } from 'lucide-react';
 import { useCart } from '@/hooks/useCart';
 import { useAuth } from '@/hooks/useAuth';
@@ -14,10 +14,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 
-
-
 const Navbar = () => {
-
   const { totalItems } = useCart();
   const { user, logout, isAuthenticated, isAdmin, isStaff } = useAuth();
   const navigate = useNavigate();
@@ -46,15 +43,11 @@ const Navbar = () => {
   const handleLogout = () => {
     logout();
     navigate('/');
-    setIsMenuOpen(false); // close menu after logout
+    setIsMenuOpen(false);
   };
 
   useEffect(() => {
-    if (isMenuOpen) {
-      document.body.style.overflow = 'hidden'; // prevent scroll
-    } else {
-      document.body.style.overflow = 'auto';
-    }
+    document.body.style.overflow = isMenuOpen ? 'hidden' : 'auto';
   }, [isMenuOpen]);
 
   return (
@@ -68,13 +61,11 @@ const Navbar = () => {
 
           {/* Desktop Search Bar */}
           <div className="hidden md:flex flex-1 max-w-lg mx-8 relative">
-            
             <Search
               className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400 cursor-pointer"
               onClick={handleSearch}
             />
-     
-              <Input
+            <Input
               type="text"
               placeholder="Search products..."
               className="pl-10 w-full"
@@ -82,7 +73,6 @@ const Navbar = () => {
               onChange={(e) => setSearchTerm(e.target.value)}
               onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
             />
-          
             {(isSearching || searchResults.length > 0) && (
               <div className="absolute top-full left-0 w-full mt-1 bg-white border shadow-md z-50 rounded max-h-60 overflow-y-auto">
                 {isSearching ? (
@@ -136,8 +126,6 @@ const Navbar = () => {
                     <DropdownMenuItem onClick={() => navigate('/userprofile')}>
                       <Shield className="h-4 w-4 mr-2" /> Profile
                     </DropdownMenuItem>
-                  
-                          
                     {isStaff && (
                       <DropdownMenuItem onClick={() => navigate('/staff')}>
                         <Shield className="h-4 w-4 mr-2" /> Staff Dashboard
@@ -159,19 +147,22 @@ const Navbar = () => {
                   </DropdownMenuContent>
                 </DropdownMenu>
               </>
-
             ) : (
               <div className="flex items-center space-x-2">
                 <Link to="/login">
-                  <Button variant="outline" size="sm">Login</Button>
+                  <Button variant="outline" size="sm" className="flex items-center space-x-1">
+                    <LogIn className="w-4 h-4" />
+                    <span>Login</span>
+                  </Button>
                 </Link>
                 <Link to="/signup">
-                  <Button size="sm" className="bg-green-500 hover:bg-green-600">Signup</Button>
+                  <Button size="sm" className="bg-green-500 hover:bg-green-600 text-white flex items-center space-x-1">
+                    <UserPlus className="w-4 h-4" />
+                    <span>Sign Up</span>
+                  </Button>
                 </Link>
-               
               </div>
             )}
-            
           </div>
 
           {/* Mobile Menu Toggle */}
@@ -260,20 +251,19 @@ const Navbar = () => {
           ) : (
             <>
               <Link to="/login">
-                <Button variant="ghost" className="w-full justify-start" onClick={() => setIsMenuOpen(false)}>
-                  Login
+                <Button variant="ghost" className="w-full justify-start flex items-center space-x-2 text-gray-700 hover:text-green-600" onClick={() => setIsMenuOpen(false)}>
+                  <LogIn className="w-4 h-4" />
+                  <span>Login</span>
                 </Button>
               </Link>
               <Link to="/signup">
-                <Button variant="ghost" className="w-full justify-start" onClick={() => setIsMenuOpen(false)}>
-                  Sign Up
+                <Button variant="ghost" className="w-full justify-start flex items-center space-x-2 text-gray-700 hover:text-green-600" onClick={() => setIsMenuOpen(false)}>
+                  <UserPlus className="w-4 h-4" />
+                  <span>Sign Up</span>
                 </Button>
               </Link>
-            
             </>
-            
           )}
-          
         </div>
       )}
     </nav>

@@ -212,6 +212,31 @@ const heroSettings = {
 </section>
 
 
+        {/* About Us Section */}
+<section className="py-20 bg-gradient-to-br from-green-50 to-white animate__animated animate__fadeIn">
+  <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 flex flex-col md:flex-row items-center gap-12">
+    
+    {/* Text Content */}
+    <div className="md:w-1/2">
+      <h2 className="text-4xl font-bold text-gray-900 mb-6">About AgroFarm</h2>
+      <p className="text-lg text-gray-700 mb-6">
+        AgroFarm is your trusted partner in modern agriculture. We combine traditional farming knowledge with cutting-edge technology to help farmers, agribusinesses, and communities thrive. From sustainable tools to expert advice, we are committed to building a greener, more productive future for all.
+      </p>
+      <Link to="/about">
+        <Button className="bg-green-500 hover:bg-green-600 text-black text-sm md:text-base px-6 py-2 rounded-full transition-all duration-300">
+          Learn More
+        </Button>
+      </Link>
+    </div>
+
+    {/* Image Content */}
+    <div className="md:w-1/2">
+      <img src="/pics/farm.jpg" alt="About AgroFarm" className="rounded-lg shadow-lg" />
+    </div>
+  </div>
+</section>
+
+
           {/* Service Highlights Section */}
       <section className="py-20 bg-white animate__animated animate__fadeInUp">
   <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 text-center">
@@ -354,6 +379,18 @@ const heroSettings = {
     </div>
   </div>
 </section>
+
+  <section className="py-16 bg-white text-center animate__animated animate__fadeIn">
+        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Ready to Grow with Us?</h2>
+        <p className="text-gray-600 mb-6 max-w-xl mx-auto leading-relaxed">
+          Join thousands of farmers and businesses using AgroFarm to cultivate success with smarter, greener farming.
+        </p>
+        <Link to="/contact">
+          <Button className="bg-green-500 hover:bg-green-600 text-black px-6 py-2 rounded-full transition-all duration-300">
+            Contact Us
+          </Button>
+        </Link>
+      </section>
 
           {/* WhatsApp Chat Button */}
           <a
