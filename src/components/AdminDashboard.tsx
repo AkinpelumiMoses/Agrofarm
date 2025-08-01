@@ -147,7 +147,7 @@ const AdminDashboard = () => {
                       <TableHead>Date</TableHead>
                       <TableHead>Action</TableHead>
                     </TableRow>
-                  </TableHeader>
+                  </TableHeader>   
                   <TableBody>
                     {orders.map(order => (
                       <TableRow key={order._id}>
