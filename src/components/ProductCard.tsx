@@ -1,10 +1,8 @@
-
 import { Link } from 'react-router-dom';
-import { ShoppingCart, Store, Loader2 } from 'lucide-react';
+import { ShoppingCart, Store, Loader2, Eye } from 'lucide-react';
 import { Product } from '@/types/product';
 import { useCart } from '@/hooks/useCart';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter } from '@/components/ui/card';
 import { toast } from '@/hooks/use-toast';
 
 interface ProductCardProps {
@@ -19,71 +17,93 @@ const ProductCard = ({ product }: ProductCardProps) => {
     e.stopPropagation();
     addToCart(product);
     toast({
-      title: "Added to cart",
+      title: 'Added to cart',
       description: `${product.name} has been added to your cart.`,
     });
   };
 
   const formatPrice = (price: number) => {
-    return new Intl.NumberFormat('en-US', {
+    return new Intl.NumberFormat('en-NG', {
       style: 'currency',
       currency: 'NGN',
     }).format(price);
   };
 
   return (
-    <Link to={`/product/${product._id}`}>
-      <Card className="group hover:shadow-lg transition-all duration-300 overflow-hidden border-0 shadow-md">
-        <div className="aspect-square overflow-hidden bg-gray-100">
+    <div className="group relative bg-white border border-gray-200 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300">
+      {/* Image Section */}
+      <Link to={`/product/${product._id}`} className="block relative">
+        <div className="aspect-square overflow-hidden bg-gray-50">
           {product.image || product.images?.[0] ? (
             <img
-              src={product.image || product.images?.[0] || `https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=400&q=80`}
+              src={product.image || product.images?.[0]}
               alt={product.name}
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              loading="lazy"
+              className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
             />
           ) : (
-            <div className="w-full h-full bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
-              <Store className="h-16 w-16 text-gray-400" />
+            <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-gray-100 to-gray-200">
+              <Store className="h-12 w-12 text-gray-400" />
             </div>
           )}
         </div>
-        
-        <CardContent className="p-4">
-          <h3 className="font-semibold text-lg text-gray-900 mb-2 line-clamp-2 group-hover:text-green-600 transition-colors">
-            {product.name}
-          </h3>
-          <p className="text-sm text-gray-600 mb-3 line-clamp-2">
-            {product.description}
-          </p>
-          <div className="flex items-center justify-between">
-            <span className="text-2xl font-bold text-green-600">
-              {formatPrice(product.price)}
-            </span>
-            <span className="text-sm text-gray-500">
-              {product.stockQuantity > 0 ? `${product.stockQuantity} in stock` : 'Out of stock'}
-            </span>
-          </div>
-        </CardContent>
-        
-        <CardFooter className="p-4 pt-0">
-          <Button
-            onClick={handleAddToCart}
-            disabled={product.stockQuantity === 0 || isLoading}
 
-            className="w-full bg-green-600 hover:bg-green-700 text-white"
-            size="sm"
-          >
-            
-            {isLoading ?(
-            <Loader2 className='h-4 w-4 mr-2 animate-spin'/>
-            ):(
-              <ShoppingCart className="h-4 w-4 mr-2" />
-            )}
-            {product.stockQuantity > 0 ? 'Add to Cart' : 'Out of Stock'}
+        {/* Quick View Button */}
+        <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity">
+          <Button size="icon" className="bg-white text-green-600 hover:text-green-700 shadow-sm">
+            <Eye className="h-4 w-4" />
           </Button>
-        </CardFooter>
-      </Card>
-    </Link> 
+        </div>
+      </Link>
+
+      {/* Content Section */}
+      <div className="p-4">
+        {/* Product Name */}
+        <h3 className="text-lg font-semibold text-gray-900 mb-1 line-clamp-2 group-hover:text-green-600 transition-colors">
+          {product.name}
+        </h3>
+
+        {/* Product Description */}
+        <p className="text-sm text-gray-600 mb-3 line-clamp-2">
+          {product.description}
+        </p>
+
+        {/* Price and Stock Row */}
+        <div className="flex items-center justify-between mb-3">
+          <span className="text-lg font-bold text-green-600 bg-green-100 px-2 py-1 rounded-full">
+            {formatPrice(product.price)}
+          </span>
+          <span
+            className={`text-xs font-medium px-2 py-1 rounded-full ${
+              product.stockQuantity > 0
+                ? 'bg-green-50 text-green-600'
+                : 'bg-red-100 text-red-500'
+            }`}
+          >
+            {product.stockQuantity > 0 ? `${product.stockQuantity} in stock` : 'Out of stock'}
+          </span>
+        </div>
+
+        {/* Add to Cart Button */}
+        <Button
+          onClick={handleAddToCart}
+          disabled={product.stockQuantity === 0 || isLoading}
+          className={`w-full text-white ${
+            product.stockQuantity === 0
+              ? 'bg-gray-400 cursor-not-allowed'
+              : 'bg-green-600 hover:bg-green-700'
+          }`}
+          size="sm"
+        >
+          {isLoading ? (
+            <Loader2 className="h-4 w-4 mr-2 animate-spin" />
+          ) : (
+            <ShoppingCart className="h-4 w-4 mr-2" />
+          )}
+          {product.stockQuantity > 0 ? 'Add to Cart' : 'Out of Stock'}
+        </Button>
+      </div>
+    </div>
   );
 };
 

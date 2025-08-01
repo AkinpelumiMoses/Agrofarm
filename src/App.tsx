@@ -20,6 +20,7 @@ import UserProfile from "./components/UserProfile";
 import MyCarousel from "./components/Carousel";
 import Staff from "./pages/Staff";
 import AboutUs from "./pages/AboutUs";
+import Contact from "./pages/Contact";
 
 
 
@@ -48,6 +49,7 @@ const App = () => (
                   <Route path="/userprofile" element={<UserProfile/>} />
                 <Route path="/carousel" element={<MyCarousel />} />
                 <Route path="/about" element={<AboutUs />} />
+                   <Route path="/contact" element={<Contact />} />
 
                   
                  
